@@ -20,10 +20,10 @@ public class Ford {
         
         for (int i = 1; i <= numVer - 1; i++) {
             for (int sn = 1; sn <= numVer; sn++) {
-                // skip if source node 'sn' is unreachable
+                
                 if (D[sn] == MAX_VALUE) continue;
                 for (int dn = 1; dn <= numVer; dn++) {
-                    if (A[sn][dn] != MAX_VALUE) { // there is an edge sn -> dn
+                    if (A[sn][dn] != MAX_VALUE) { 
                         if (D[dn] > D[sn] + A[sn][dn]) {
                             D[dn] = D[sn] + A[sn][dn];
                         }
@@ -67,18 +67,17 @@ public class Ford {
         System.out.print("Enter the number of vertices: ");
         int numVer = scanner.nextInt();
 
-        int A[][] = new int[numVer + 1][numVer + 1]; // 1-based
-
+        int A[][] = new int[numVer + 1][numVer + 1]; 
         System.out.println("Enter the adjacency matrix (enter 0 for no edge; diagonal entries ignored):");
         for (int sn = 1; sn <= numVer; sn++) {
             for (int dn = 1; dn <= numVer; dn++) {
                 int val = scanner.nextInt();
                 
                 if (sn == dn) {
-                    A[sn][dn] = 0; // distance to self is 0
+                    A[sn][dn] = 0; 
                 } else {
                     if (val == 0) {
-                        A[sn][dn] = MAX_VALUE; // no edge
+                        A[sn][dn] = MAX_VALUE; 
                     } else {
                         A[sn][dn] = val;
                     }
